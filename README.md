@@ -3,13 +3,13 @@ This repository contains the source code for analysis for analysis of TEX, 5-CAP
 # Usage
 * hmm_frag_fit.py - Fits a 2-state Gaussian HMM to each transcript
   * usage: `hmm_frag_fit.py [-norm_type CONTROL] [-non_discrete] EXP_NAME bigwig1 [bigwig2 ...]`
-    * name: Name of experiment (input type)
+    * EXP_NAME: Name of experiment (input type)
     * bigwigs: bigwig files of RNA-seq (both treated and control) as input
     * -norm_type NORM_TYPE: Substring appears in the control files
-    * -non_discrete: Whether to use continuous HMM of discrete
+    * -non_discrete: Whether to use continuous HMM or discrete
   * Usage example: 
-    ```commandline
-    python hmm_frag_fit.py U2OS_5prime_fit_hmm -non_discrete -norm_type Total data/*_TEX.bigwig data/MichaHg19/*_Total.bigwig
+    ```
+    python hmm_frag_fit.py U2OS_5prime_fit_hmm -non_discrete -norm_type Total data/*_TEX.bigwig data/*_Total.bigwig
     ```
 
 ## Supplementary scripts
