@@ -11,11 +11,11 @@ uc010wmk.1
 """
 import os
 
-import chromatin_hmm.hmm.HMMModel as hmm
+import hmm_kit.HMMModel as hmm
 import numpy as np
 import pandas as pd
 from bx.bbi.bigwig_file import BigWigFile
-from chromatin_hmm.hmm.bwiter import bw_iter_log
+from hmm_kit.bwiter import bw_iter_log
 from scipy.stats import multivariate_normal
 from scipy.stats import norm
 from scipy.stats import ttest_ind, skew

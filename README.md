@@ -1,5 +1,14 @@
 This repository contains the source code for analysis for analysis of TEX, 5-CAP-PD and 3-PD experiments.
 
+# Install
+1. Install required python packages:
+`pip install -r requirements.txt`
+2. Get required metadata:
+   * In directory data run: `get_data.sh`
+   * Alternatively download manually the following files to data directory:
+     * knownGene.hg19.txt.gz - http://hgdownload.cse.ucsc.edu/goldenpath/hg19/database/knownGene.txt.gz
+     * kgXreg.hg19.txt.gz - http://hgdownload.cse.ucsc.edu/goldenpath/hg19/database/kgXref.txt.gz
+
 # Usage
 * hmm_frag_fit.py - Fits a 2-state Gaussian HMM to each transcript
   * usage: `hmm_frag_fit.py [-norm_type CONTROL] [-non_discrete] EXP_NAME bigwig1 [bigwig2 ...]`
@@ -20,6 +29,4 @@ This repository contains the source code for analysis for analysis of TEX, 5-CAP
 * scripts for generating debug tracks:
   * zscore_track.py
   * regression_fit_track.py
-  
-
-
+ 

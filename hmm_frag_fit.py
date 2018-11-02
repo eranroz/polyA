@@ -15,8 +15,8 @@ import pandas as pd
 from scipy.stats import norm
 from bx.bbi.bigwig_file import BigWigFile
 from scipy.stats import ttest_ind, ks_2samp, skew
-import chromatin_hmm.hmm.HMMModel as hmm
-from chromatin_hmm.hmm.bwiter import bw_iter_log
+from hmm_kit import HMMModel as hmm
+from hmm_kit.bwiter import bw_iter_log
 from utils import read_known_genes
 
 WINDOW_JUMPS = 20
@@ -278,7 +278,7 @@ def hmm_frag_transcripts(all_bw, experiment, feature_extractors={}):
         input('Are you sure you want to override %s? (Press CTRL+C if not)' % output_file)
 
     # interesting transcripts are those for which the transition is within the 3'UTR and significant
-    output_res_score.sort(['bp in UTR', 'ks_test'], ascending=[False, True]).to_csv(output_file, index=False)
+    output_res_score.sort_values(['bp in UTR', 'ks_test'], ascending=[False, True]).to_csv(output_file, index=False)
     # create bed file for visualization
     bed_data = output_res_score[['name', 'txStart', 'bp', 'chrom', 'strand', 'ks_test']]
     bed_data.rename(columns={'ks_test': 'score'}, inplace=True)
