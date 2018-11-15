@@ -27,8 +27,8 @@ DEBUG = False
 
 def get_exon_values_windows(transcript_values, exon_starts, exon_ends, window_jumps=WINDOW_JUMPS,
                             window_size=WINDOW_SIZE):
-    _ex_windows_pos = [win for exStart, exEnd in zip(exon_starts, exon_ends)
-                       for win in range(exStart, exEnd - window_size, window_jumps)]
+    _ex_windows_pos = np.array([win for exStart, exEnd in zip(exon_starts, exon_ends)
+                       for win in range(exStart, exEnd - window_size, window_jumps)])
     _ex_windows = np.concatenate([np.arange(win, win + window_size) for win in _ex_windows_pos])
 
     _ex_windows_values = transcript_values[_ex_windows].reshape(
@@ -199,8 +199,9 @@ def hmm_frag_transcripts(all_bw, experiment, feature_extractors={}):
                     state_seq, path_likelihood = new_model.viterbi(np.array([exon_data]), True)
                     p_body = np.mean(exon_data[state_seq == 0])
                     p_tail = np.mean(exon_data[state_seq == 1])
-            except:
-                print('%s transcript failed to Baum Welsch - skipping' % name)
+            except Exception as e:
+                print('%s transcript failed - skipping, error:' % name)
+                print(e)
                 continue
 
             if not np.any(state_seq == 1) or np.all(state_seq == 1):
