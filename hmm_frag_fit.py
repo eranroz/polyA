@@ -182,7 +182,7 @@ def hmm_frag_transcripts(all_bw, experiment, feature_extractors={}):
                                                 [(np.mean(ex_windows_values_cds), cov_data),
                                                  (np.mean(ex_windows_values_ncds), cov_data)
                                                  ],
-                                                cov_sharing=[0, 0], cov_model='shared', min_std=cov_data)
+                                                cov_sharing=np.array([0, 0]), cov_model='shared', min_std=cov_data)
                     new_model, model_likelihood = bw_iter_log(np.array([exon_data]), hmm_model, stop_condition=3)
 
                     fb_res = new_model.forward_backward_log(np.array([exon_data]), True)
