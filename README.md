@@ -30,6 +30,6 @@ This repository contains the source code for analysis for analysis of TEX, 5-CAP
   * zscore_track.py
   * regression_fit_track.py
 
-# Additonal infomation
+# Additional infomation
 * Malka, Y., Steiman-Shimony, A., Rosenthal, E., Argaman, L., Cohen-Daniel, L., Arbib, E., Margalit, H., Kaplan, T. & Berger, M. (2017). [Post-transcriptional 3´-UTR cleavage of mRNA transcripts generates thousands of stable uncapped autonomous RNA fragments](https://doi.org/10.1038/s41467-017-02099-7). Nature communications, 8(1), 2029.
 * [GSE84068](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE84068) - The samples contain the original bigwig files used by the above paper.
